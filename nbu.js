@@ -38,7 +38,7 @@ NBU.admin.jobs = function(_callback){
 
 
 NBU.login(function(){
-    NBU.admin.job(function(response){
+    NBU.admin.jobs(function(response){
         console.log(response);
     })
 })
