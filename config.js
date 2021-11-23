@@ -1,7 +1,7 @@
 var Config = {};
 
 function init() {
-  Config = require('../data/config.json');
+  Config = require('./config.json');
 }
 init();
 
