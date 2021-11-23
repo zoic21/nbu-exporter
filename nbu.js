@@ -38,7 +38,7 @@ NBU.admin.jobs = function(_callback){
 }
 
 NBU.config.policies = function(_callback){
-    NBU.axios.get(config.nbu.url+'/config/policies',{ 
+    NBU.axios.get(config.nbu.url+'/config/policies?page%5Blimit%5D=999',{ 
         headers:  {'content-type': 'application/vnd.netbackup+json;version=1.0','Authorization' : NBU.token}
     }).then(function (response) {
         _callback(response.data)
