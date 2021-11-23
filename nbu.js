@@ -5,7 +5,8 @@ const axios = require('axios').default;
 var NBU = {
     token : null,
     expire : null,
-    admin : {}
+    admin : {},
+    config : {}
 }
 
 NBU.axios = axios.create({
@@ -36,11 +37,22 @@ NBU.admin.jobs = function(_callback){
     });
 }
 
+NBU.config.policies = function(_callback){
+    NBU.axios.get(config.nbu.url+'/config/policies',{ 
+        headers:  {'content-type': 'application/vnd.netbackup+json;version=1.0','Authorization' : NBU.token}
+    }).then(function (response) {
+        _callback(response.data)
+    }).catch(function (error) {
+        console.log(error);
+    });
+}
 
 NBU.login(function(){
-    NBU.admin.jobs(function(response){
+    NBU.config.policies(function(response){
         console.log(response);
     })
 })
+
+
 
 exports.nbu = NBU
