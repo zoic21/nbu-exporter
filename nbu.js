@@ -64,7 +64,7 @@ NBU.config.policies = function(_callback,_offset,_limit){
 
 NBU.login(function(){
     NBU.config.policies(function(response){
-        console.log(response.length)
+        console.log(response)
     })
 })
 
