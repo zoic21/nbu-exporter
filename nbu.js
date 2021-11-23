@@ -30,7 +30,7 @@ NBU.admin.jobs = function(_callback){
     NBU.axios.get(config.nbu.url+'/admin/jobs',{ 
         headers:  {'content-type': 'application/vnd.netbackup+json;version=1.0','Authorization' : NBU.token}
     }).then(function (response) {
-        _callback(response)
+        _callback(response.data)
     }).catch(function (error) {
         console.log(error);
     });
