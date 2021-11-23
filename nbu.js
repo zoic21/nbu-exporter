@@ -1,4 +1,5 @@
 const config = require('./config').config;
+const https = require('https');
 const axios = require('axios').default;
 
 var NBU = {
@@ -25,8 +26,8 @@ NBU.login = function(_callback){
     });
 }
 
-NBU.admin.job = function(_callback){
-    NBU.axios.get(config.nbu.url+'/admin/job',{ 
+NBU.admin.jobs = function(_callback){
+    NBU.axios.get(config.nbu.url+'/admin/jobs',{ 
         headers:  {'content-type': 'application/vnd.netbackup+json;version=1.0','Authorization' : NBU.token}
     }).then(function (response) {
         _callback(response)
